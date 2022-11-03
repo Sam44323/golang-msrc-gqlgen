@@ -7,5 +7,5 @@ import (
   )
 
 func main(){
-  fmt.Println("graphql microservice in golang!")
+  fmt.Println("working")
 }
