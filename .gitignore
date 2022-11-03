@@ -1,0 +1,9 @@
+#hashing
+
+..gpg
+.gpg
+
+#gqlgen generated code
+
+graph/**/generated
+internal/model/*_gen.go
