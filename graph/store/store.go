@@ -29,5 +29,9 @@ func WithStore(store *Store, next http.Handler) http.Handler {
 
 // GetStoreFromContext - retrieves a store from the context
 func GetStoreFromContext(ctx context.Context) *Store {
-	return ctx.Value("STORE").(*Store)
+	store, ok := ctx.Value("STORE").(*Store) // retrieving store from context
+	if !ok {
+		panic("Could not retrieve store from context")
+	}
+	return store
 }
