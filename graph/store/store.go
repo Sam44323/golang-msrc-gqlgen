@@ -28,3 +28,6 @@ func WithStore(store *Store, next http.Handler) http.Handler {
 }
 
 // GetStoreFromContext - retrieves a store from the context
+func GetStoreFromContext(ctx context.Context) *Store {
+	return ctx.Value("STORE").(*Store)
+}
