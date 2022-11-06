@@ -5,7 +5,6 @@ package graph
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/Sam44323/golang-micro/graph/generated"
 	"github.com/Sam44323/golang-micro/graph/model"
@@ -13,12 +12,30 @@ import (
 
 // CreateTodo is the resolver for the createTodo field.
 func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: CreateTodo - createTodo"))
+	return &model.Todo{
+		ID:   "1",
+		Text: input.Text,
+		Done: false,
+		User: &model.User{
+			ID:   "1",
+			Name: "Sam",
+		},
+	}, nil
 }
 
 // Todos is the resolver for the todos field.
 func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
-	panic(fmt.Errorf("not implemented: Todos - todos"))
+	return []*model.Todo{
+		{
+			ID:   "1",
+			Text: "Hello",
+			Done: false,
+			User: &model.User{
+				ID:   "1",
+				Name: "Sam",
+			},
+		},
+	}, nil
 }
 
 // Mutation returns generated.MutationResolver implementation.
